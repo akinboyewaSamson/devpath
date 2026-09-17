@@ -322,8 +322,7 @@ function TopicDrawer({
   );
 }
 
-// ─── Main Roadmap Page ──────────────────────────────────────────────────────────
-export default function RoadmapPage() {
+function RoadmapContent() {
   const { user, isLoading } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -562,5 +561,22 @@ export default function RoadmapPage() {
         </AnimatePresence>
       </div>
     </div>
+  );
+}
+
+export default function RoadmapPage() {
+  return (
+    <React.Suspense
+      fallback={
+        <div className="min-h-screen bg-[#FDFBFA] flex items-center justify-center">
+          <div className="flex flex-col items-center gap-3">
+            <div className="w-8 h-8 border-4 border-[#EE5902] border-t-transparent rounded-full animate-spin" />
+            <p className="text-sm font-medium text-gray-500">Loading DevPath Roadmap...</p>
+          </div>
+        </div>
+      }
+    >
+      <RoadmapContent />
+    </React.Suspense>
   );
 }
