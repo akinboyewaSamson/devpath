@@ -6,6 +6,12 @@ const prisma = new PrismaClient();
 async function main() {
   console.log('Seeding DevPath database with Java Backend & Modern Frontend curricula...');
 
+  const existingTracks = await prisma.track.count();
+  if (existingTracks > 0 && process.env.FORCE_SEED !== 'true') {
+    console.log('Database already contains data. Skipping seed. (Set FORCE_SEED=true to re-seed)');
+    return;
+  }
+
   // 1. Clean existing seed records
   await prisma.userProgress.deleteMany();
   await prisma.topicPrerequisite.deleteMany();
