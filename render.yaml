@@ -16,7 +16,7 @@ services:
     healthCheckPath: /api/tracks
     envVars:
       - key: NODE_VERSION
-        value: 18.19.1
+        value: 20.14.0
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
@@ -47,7 +47,7 @@ services:
     startCommand: npm run start
     envVars:
       - key: NODE_VERSION
-        value: 18.19.1
+        value: 20.14.0
       - key: NODE_OPTIONS
         value: --max-old-space-size=450
       - key: NODE_ENV
