@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 253 251 250; /* #FDFBFA */
+    --foreground: 27 27 56;     /* #1B1B38 */
+    --card: 255 255 255;
+    --card-foreground: 27 27 56;
+    --border: 226 232 240;      /* #E2E8F0 */
+    --primary: 238 89 2;        /* #EE5902 Orbit Orange */
+    --primary-foreground: 255 255 255;
+    --accent: 16 185 129;
+    --warning: 245 158 11;
+  }
+
+  body {
+    background-color: #FDFBFA;
+    color: #1B1B38;
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #0D0D54;
+    font-family: 'DM Sans', 'Poppins', sans-serif;
+  }
+}
+
+/* Custom styles for React Flow in Light Mode */
+.react-flow__background {
+  background-color: transparent !important;
+}
+
+.react-flow__edge-path {
+  stroke: #CBD5E1 !important;
+  stroke-width: 2.5 !important;
+}
+
+.react-flow__edge.completed .react-flow__edge-path {
+  stroke: #10B981 !important;
+  stroke-width: 2.5 !important;
+}
+
+.react-flow__edge.in-progress .react-flow__edge-path {
+  stroke: #EE5902 !important;
+  stroke-width: 2.5 !important;
+  stroke-dasharray: 6;
+  animation: flowAnimation 1s linear infinite;
+}
+
+@keyframes flowAnimation {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.react-flow__controls {
+  box-shadow: 0 4px 16px rgba(13, 13, 84, 0.08) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  border: 1px solid #E2E8F0 !important;
+  background-color: #FFFFFF !important;
+}
+
+.react-flow__controls-button {
+  background-color: #FFFFFF !important;
+  fill: #1B1B38 !important;
+  border-bottom: 1px solid #F1F5F9 !important;
+}
+
+.react-flow__controls-button:hover {
+  background-color: #FFEFE6 !important;
+  fill: #EE5902 !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FDFBFA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
